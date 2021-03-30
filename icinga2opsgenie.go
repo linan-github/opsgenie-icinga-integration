@@ -250,6 +250,7 @@ func http_post() {
 func parseFlags() map[string]string {
 	apiKey := flag.String("apiKey", "", "api key")
 	icingaServer := flag.String("is", "", "icinga server")
+	priority := flag.String("priority", "", "possible values=P1|P2|P3|P4|P5")
 
 	entityType := flag.String("entityType", "", "")
 
@@ -365,6 +366,8 @@ func parseFlags() map[string]string {
 	} else {
 		parameters["logPath"] = configParameters["logPath"]
 	}
+	
+	parameters["priority"] = *priority
 
 	parameters["entity_type"] = *entityType
 
